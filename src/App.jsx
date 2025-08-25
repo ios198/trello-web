@@ -1,18 +1,53 @@
-import Button from '@mui/material/Button'
-import AccessAlarmIcon from '@mui/icons-material/AccessAlarm'
-import Typography from '@mui/material/Typography'
-
+import Container from '@mui/material/Container'
+import Box from '@mui/material/Box'
+import theme from './theme'
 function App() {
   return (
     <>
-      <div>Đặng Hồng Quân</div>
-      <Typography variant="body2" color="text.secondary">
-        Hello World
-      </Typography>
-      <Button variant="text">Text</Button>
-      <Button variant="contained">Contained</Button>
-      <Button variant="outlined">Outlined</Button>
-      <AccessAlarmIcon />
+      <Container
+        disableGutters
+        maxWidth={false}
+        sx={{ backgroundColor: 'primary.main', height: '100vh' }}
+      >
+        <Box
+          sx={{
+            backgroundColor: 'primary.light',
+            width: '100%',
+            height: (theme) => theme.trello.appBarHeight,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+          }}
+        >
+          Mode Select
+        </Box>
+        <Box
+          sx={{
+            backgroundColor: 'primary.dark',
+            width: '100%',
+            height: (theme) => theme.trello.boardBarHeight,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+          }}
+        >
+          Board Bar
+        </Box>
+        <Box
+          sx={{
+            backgroundColor: 'secondary.light',
+            width: '100%',
+            height: (theme) =>
+              `calc(100vh - ${theme.trello.appBarHeight} - ${theme.trello.boardBarHeight})`,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+          }}
+        >
+          Board Content
+        </Box>
+        <Box></Box>
+      </Container>
     </>
   )
 }
